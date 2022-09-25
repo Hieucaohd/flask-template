@@ -1,11 +1,11 @@
 from src.database.mongo.base_model import BaseMongoDB
 
 
-class Param(BaseMongoDB):
+class HelloWorldModel(BaseMongoDB):
     meta = {
         'indexes': [
             {
-                "fields": ["+key_id", "+param_value"],
+                "fields": ["+name", "+age"],
                 "unique": True
             }
         ],

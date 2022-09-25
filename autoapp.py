@@ -1,7 +1,10 @@
 from flask.helpers import get_debug_flag
 
-from api.app import create_app
-from api.settings import DevConfig, ProdConfig
+from src.api.app import create_app
+from src.api.settings import DevConfig, ProdConfig
 
-CONFIG = DevConfig if get_debug_flag() else ProdConfig
-app = create_app(CONFIG)
+
+if __name__ == '__main__':
+    CONFIG = DevConfig
+    app = create_app(CONFIG)
+    app.run(debug=True)

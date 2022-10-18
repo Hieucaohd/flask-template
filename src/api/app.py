@@ -2,12 +2,12 @@ from flask import Flask
 
 from src.api.extensions import cache, cors
 
-from src.api.settings import ProdConfig
+from src.settings.settings import ProdConfig
 from src.api.exceptions import InvalidUsage
 
-from src.database.mongo.base_model import MongoDBInit
+from autotech_sdk.database.mongo import MongoDBInit
 
-from src.api.param import views as param_views
+from src.api.hello_world_ping import views as hello_world_views
 from flask_apispec import FlaskApiSpec
 
 
@@ -37,15 +37,15 @@ def register_extensions(app):
 
 
 def register_blueprint_for_docs(docs: FlaskApiSpec):
-    param_views.register_docs(docs)
+    hello_world_views.register_docs(docs)
 
 
 def register_blueprints(app: Flask):
     origins = app.config.get('CORS_ORIGIN_WHITELIST', '*')
 
-    cors.init_app(param_views.blueprint, origins=origins)
+    cors.init_app(hello_world_views.blueprint, origins=origins)
 
-    app.register_blueprint(param_views.blueprint)
+    app.register_blueprint(hello_world_views.blueprint)
 
 
 def register_error_handlers(app: Flask):

@@ -1,8 +1,8 @@
-from flask.helpers import get_debug_flag
+from dotenv import load_dotenv
+load_dotenv()
 
 from src.api.app import create_app
-from src.api.settings import DevConfig, ProdConfig
-
+from src.settings.settings import DevConfig
 
 if __name__ == '__main__':
     CONFIG = DevConfig

@@ -1,3 +1,3 @@
 class Endpoint:
-    pass
+    HELLO_WORLD = "/"
 

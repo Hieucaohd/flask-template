@@ -12,13 +12,6 @@
 
    - Next, run app:
    > flask run
-3) Run consumer:
-   - Make sure, you have kafka server running on *localhost:9092*
-   - In another process, run:
-   > python3 run_consumer.py
-4) Run job schedule:
-   - In another process, run:
-   > python3 run_job_schedule.py
 
 # Docs
 - Docs page: after run app, go to *http://127.0.0.1:5000/docs*
